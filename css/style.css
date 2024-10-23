@@ -4125,6 +4125,7 @@ input[type="button"].btn-block {
   white-space: nowrap;
 }
 
+
 .navbar-brand:hover, .navbar-brand:focus {
   text-decoration: none;
 }
@@ -4146,6 +4147,12 @@ input[type="button"].btn-block {
   position: static;
   float: none;
 }
+
+.navbar-items {
+  margin-left: auto; /* Ensure it aligns to the right */
+  display: flex; /* Add this to ensure the items inside it are in a row */
+  align-items: center;
+} 
 
 .navbar-text {
   display: inline-block;
@@ -9997,31 +10004,35 @@ h6,
 
 .promo-container {
   display: flex;
+  flex-direction: column; /* Stack elements vertically on small screens */
   justify-content: center;
   align-items: center;
-  height: 90vh;
-  background-color: white;
+  height: auto; /* Allow height to adjust based on content */
+  background-color: #D8D2C2;
 }
 
 /* Image section */
 .promo-image-container {
-  flex: 1;
+  flex: 2;
+  margin: 20px 0 20px 0; /* Added 20px top margin */
 }
 
+
 .promo-image-container img {
-  width: 100%;
-  height: 80vh; /* Increased image height */
+  width: 90%;
+  height: auto; /* Set height to auto for better aspect ratio */
+  max-height: 80vh; /* Set a max height */
   object-fit: cover;
 }
 
 /* Form section */
 .promo-form-container {
   flex: 1;
-  padding: 40px 60px; /* Reduced padding */
+  padding: 20px; /* Reduced padding for mobile */
   background-color: #f9f9f9;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   height: auto; /* Set auto height to make it responsive */
-  max-width: 450px; /* Limited max width to make it more compact */
+  max-width: 90%; /* Use a percentage for max width to fit better on mobile */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10030,14 +10041,14 @@ h6,
 /* Headings */
 .promo-form-container h2 {
   margin-bottom: 10px;
-  font-size: 28px;
+  font-size: 24px; /* Reduced font size for mobile */
   color: #FFEA00; /* Changed text color */
   text-align: center; /* Center aligned */
 }
 
 .promo-form-container p {
   margin-bottom: 20px;
-  font-size: 16px;
+  font-size: 14px; /* Reduced font size for mobile */
   color: #333;
   text-align: center; /* Center aligned */
 }
@@ -10074,6 +10085,31 @@ h6,
 .promo-form-container button:hover {
   background-color: #E0D200;
 }
+
+/* Media Queries for Further Optimization */
+@media (min-width: 768px) {
+  .promo-container {
+    flex-direction: row; /* Switch back to row layout for larger screens */
+  }
+
+  .promo-image-container {
+    margin-left: 25px; /* Add left margin for larger screens */
+  }
+
+  .promo-form-container {
+    padding: 40px 60px; /* Restore padding for larger screens */
+    margin-right: 25px; /* Add margin on the right for larger screens */
+  }
+
+  .promo-form-container h2 {
+    font-size: 28px; /* Restore font size for larger screens */
+  }
+
+  .promo-form-container p {
+    font-size: 16px; /* Restore font size for larger screens */
+  }
+}
+
 
 .faq-section {
   max-width: 800px;
@@ -10146,4 +10182,84 @@ h6,
 }
 .card-title {
   font-weight: medium;
+}
+
+.contact-new {
+  padding: 40px 20px;
+}
+
+.form-image-container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically on small screens */
+  justify-content: center;
+  align-items: center;
+  height: auto; /* Allow height to adjust based on content */
+  padding: 20px; /* Adjust padding for smaller screens */
+}
+
+.image-section {
+  margin: 0 0 20px 0; /* Remove right margin and add bottom margin for spacing */
+}
+
+.promo-image {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio on smaller screens */
+  border-radius: 10px;
+}
+
+.form-section {
+  background-color: #eaeaea;
+  padding: 20px; /* Reduce padding for mobile */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 90%; /* Allow for better responsiveness */
+}
+
+.form-section h2 {
+  text-align: center;
+  margin-bottom: 15px; /* Adjust margin for smaller screens */
+}
+
+.form-section form label {
+  margin: 0;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section form input,
+.form-section form button {
+  margin-top: 10px;
+  padding: 10px; /* Adjust padding for inputs and buttons */
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.form-section form button {
+  background-color: #FFEA00;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-section form button:hover {
+  background-color: #E0D200;
+}
+
+/* Media Queries for Further Optimization */
+@media (min-width: 768px) {
+  .form-image-container {
+    flex-direction: row; /* Switch back to row layout for larger screens */
+  }
+
+  .image-section {
+    margin-right: 50px; /* Add space between image and form on larger screens */
+  }
+
+  .form-section {
+    padding: 30px; /* Restore padding for larger screens */
+  }
 }
